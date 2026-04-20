@@ -1,6 +1,6 @@
 <template>
   <!-- Grid managing tab content -->
-  <div uk-grid class="uk-height-1-1 uk-margin-remove uk-padding-remove">
+  <div uk-grid class="uk-height-1-1 uk-grid-divider uk-margin-remove uk-padding-remove">
     <div class="control-panel">
       <offsetControl />
     </div>
@@ -26,6 +26,6 @@ export default {
 
 <style scoped>
 .control-panel {
-  width: 570px;
+  width: 450px;
 }
 </style>
