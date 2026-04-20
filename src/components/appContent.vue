@@ -89,6 +89,10 @@ import loggingContent from './tabContentComponents/loggingContent.vue'
 import settingsContent from './tabContentComponents/settingsContent.vue'
 // import slideScanContent from './tabContentComponents/slideScanContent.vue'
 import viewContent from './tabContentComponents/viewContent.vue'
+
+import myControlContent from './tabContentComponents/myControlContent.vue'
+import offsetContent from './tabContentComponents/offsetContent.vue'
+
 import { markRaw } from 'vue'
 import { eventBus } from '../eventBus.js'
 
@@ -141,6 +145,19 @@ export default {
           icon: 'visibility',
           component: markRaw(viewContent),
           requiredThings: [],
+        },
+        {
+          id: 'myControl',
+          title: 'My Control',
+          icon: 'gamepad',
+          component: markRaw(myControlContent),
+          requiredThings: [],
+        },
+        {
+          id: 'offset',
+          title: 'Offset',
+          icon: 'settings',
+          component: markRaw(offsetContent),
         },
         // {
         //   id: "control",
