@@ -90,7 +90,7 @@ import settingsContent from './tabContentComponents/settingsContent.vue'
 // import slideScanContent from './tabContentComponents/slideScanContent.vue'
 import viewContent from './tabContentComponents/viewContent.vue'
 
-import myControlContent from './tabContentComponents/myControlContent.vue'
+import gControlContent from './tabContentComponents/gControlContent.vue'
 import offsetContent from './tabContentComponents/offsetContent.vue'
 
 import { markRaw } from 'vue'
@@ -148,9 +148,9 @@ export default {
         },
         {
           id: 'myControl',
-          title: 'My Control',
+          title: 'G Control',
           icon: 'gamepad',
-          component: markRaw(myControlContent),
+          component: markRaw(gControlContent),
           requiredThings: [],
         },
         {

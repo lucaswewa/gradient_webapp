@@ -65,33 +65,28 @@
 </template>
 
 <script>
-import myStageControlContent from './controlComponents/myStageControlContent.vue'
-import myProjectorControlContent from './controlComponents/myProjectorControlContent.vue'
-import myCameraControlContent from './controlComponents/myCameraControlContent.vue'
-import myDeviceControlContent from './controlComponents/myDeviceControlContent.vue'
+import gStageControlContent from './gControlComponents/gStageControlContent.vue'
+import gProjectorControlContent from './gControlComponents/gProjectorControlContent.vue'
+import gCameraControlContent from './gControlComponents/gCameraControlContent.vue'
+import gDeviceControlContent from './gControlComponents/gDeviceControlContent.vue'
 import MiniStreamDisplay from '../genericComponents/miniStreamDisplay.vue'
 
 import tabIcon from '../genericComponents/tabIcon.vue'
 import tabContent from '../genericComponents/tabContent.vue'
 import { markRaw } from 'vue'
 
-// import store from '@/store'
-// import useLTI from '@/mixins/labThingsMixins'
-
-// const lti = useLTI()
-
 export default {
-  name: 'MyControlContent',
+  name: 'GradientControlContent',
 
   components: {
     tabIcon,
     tabContent,
     // paneControl,
     MiniStreamDisplay,
-    stageControlContent: myStageControlContent,
-    projectorControlContent: myProjectorControlContent,
-    cameraControlContent: myCameraControlContent,
-    deviceControlContent: myDeviceControlContent,
+    stageControlContent: gStageControlContent,
+    projectorControlContent: gProjectorControlContent,
+    cameraControlContent: gCameraControlContent,
+    deviceControlContent: gDeviceControlContent,
   },
 
   data: function () {
@@ -103,21 +98,21 @@ export default {
           id: 'stage',
           title: 'Stage',
           requireConnection: false,
-          component: markRaw(myStageControlContent),
+          component: markRaw(gStageControlContent),
           requiredThings: [],
         },
         {
           id: 'projector',
           title: 'Projector',
           requireConnection: false,
-          component: markRaw(myProjectorControlContent),
+          component: markRaw(gProjectorControlContent),
           requiredThings: [],
         },
         {
           id: 'camera',
           title: 'Camera',
           requireConnection: false,
-          component: markRaw(myCameraControlContent),
+          component: markRaw(gCameraControlContent),
           requiredThings: [],
         },
       ],
@@ -126,7 +121,7 @@ export default {
           id: 'device',
           title: 'Device',
           requireConnection: false,
-          component: markRaw(myDeviceControlContent),
+          component: markRaw(gDeviceControlContent),
           requiredThings: [],
         },
       ],
