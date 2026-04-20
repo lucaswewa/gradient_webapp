@@ -6,6 +6,7 @@
     </div>
     <div class="view-component uk-width-expand">
       <offsetChart />
+      <simpleSurface />
     </div>
   </div>
 </template>
@@ -13,6 +14,7 @@
 <script>
 import offsetControl from './offsetComponents/offsetControl.vue'
 import offsetChart from './offsetComponents/offsetChart.vue'
+import simpleSurface from './offsetComponents/simpleSurface.vue'
 
 export default {
   name: 'ControlContent',
@@ -20,6 +22,7 @@ export default {
   components: {
     offsetControl,
     offsetChart,
+    simpleSurface,
   },
 }
 </script>
