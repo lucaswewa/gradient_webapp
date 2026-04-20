@@ -10,7 +10,7 @@ import modalMixin from '@/mixins/modalMixins.js'
 import labThingsMixins from './mixins/labThingsMixins'
 
 // UIKit overrides
-UIkit.mixin(
+;(UIkit as any).mixin(
   {
     data: {
       animation: false,

@@ -34,9 +34,11 @@
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",
     "@types/node": "^24.12.2",
+    "@types/uikit": "^3.23.0",
     "@vitejs/plugin-vue": "^6.0.6",
     "@vue/eslint-config-typescript": "^14.7.0",
     "@vue/tsconfig": "^0.9.1",
+    "esbuild": "^0.28.0",
     "eslint": "^10.2.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-oxlint": "~1.60.0",
