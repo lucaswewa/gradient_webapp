@@ -77,27 +77,27 @@
 
 <script>
 // Import generic components
-import tabIcon from "./genericComponents/tabIcon.vue";
-import tabContent from "./genericComponents/tabContent.vue";
+import tabIcon from './genericComponents/tabIcon.vue'
+import tabContent from './genericComponents/tabContent.vue'
 
 // Import new content components
-import aboutContent from "./tabContentComponents/aboutContent.vue";
-import controlContent from "./tabContentComponents/controlContent.vue";
-import loggingContent from "./tabContentComponents/loggingContent.vue";
-import powerContent from "./tabContentComponents/powerContent.vue";
-import scanListContent from "./tabContentComponents/scanListContent.vue";
-import settingsContent from "./tabContentComponents/settingsContent.vue";
-import slideScanContent from "./tabContentComponents/slideScanContent.vue";
-import viewContent from "./tabContentComponents/viewContent.vue";
-import { markRaw } from "vue";
-import { eventBus } from "../eventBus.js";
+// import aboutContent from './tabContentComponents/aboutContent.vue'
+// import controlContent from "./tabContentComponents/controlContent.vue";
+import loggingContent from './tabContentComponents/loggingContent.vue'
+// import powerContent from './tabContentComponents/powerContent.vue'
+// import scanListContent from './tabContentComponents/scanListContent.vue'
+import settingsContent from './tabContentComponents/settingsContent.vue'
+// import slideScanContent from './tabContentComponents/slideScanContent.vue'
+import viewContent from './tabContentComponents/viewContent.vue'
+import { markRaw } from 'vue'
+import { eventBus } from '../eventBus.js'
 
 // Import modal components for device initialisation
-import calibrationWizard from "./modalComponents/calibrationWizard.vue";
+import calibrationWizard from './modalComponents/calibrationWizard.vue'
 
 // Export main app
 export default {
-  name: "AppContent",
+  name: 'AppContent',
 
   components: {
     tabIcon,
@@ -106,137 +106,137 @@ export default {
   },
   data: function () {
     return {
-      currentTab: "view",
+      currentTab: 'view',
       bottomTabs: [
         {
-          id: "settings",
-          title: "Settings",
-          icon: "settings",
+          id: 'settings',
+          title: 'Settings',
+          icon: 'settings',
           component: markRaw(settingsContent),
-          class: "uk-margin-auto-top",
+          class: 'uk-margin-auto-top',
         },
         {
-          id: "logging",
-          title: "Logging",
-          icon: "assignment_late",
+          id: 'logging',
+          title: 'Logging',
+          icon: 'assignment_late',
           component: markRaw(loggingContent),
         },
-        {
-          id: "about",
-          title: "About",
-          icon: "info",
-          component: markRaw(aboutContent),
-        },
-        {
-          id: "power",
-          title: "Power",
-          icon: "power_settings_new",
-          component: markRaw(powerContent),
-        },
+        // {
+        //   id: 'about',
+        //   title: 'About',
+        //   icon: 'info',
+        //   component: markRaw(aboutContent),
+        // },
+        // {
+        //   id: 'power',
+        //   title: 'Power',
+        //   icon: 'power_settings_new',
+        //   component: markRaw(powerContent),
+        // },
       ],
       coreTopTabs: [
         {
-          id: "view",
-          title: "View",
-          icon: "visibility",
+          id: 'view',
+          title: 'View',
+          icon: 'visibility',
           component: markRaw(viewContent),
           requiredThings: [],
         },
-        {
-          id: "control",
-          title: "Control",
-          icon: "gamepad",
-          component: markRaw(controlContent),
-          requiredThings: [],
-        },
-        {
-          id: "slide-scan",
-          title: "Slide Scan",
-          icon: "settings_overscan",
-          component: markRaw(slideScanContent),
-          requiredThings: ["smart_scan"],
-        },
-        {
-          id: "scan-list",
-          title: "Scan List",
-          icon: "photo_library",
-          component: markRaw(scanListContent),
-          requiredThings: ["smart_scan"],
-        },
+        // {
+        //   id: "control",
+        //   title: "Control",
+        //   icon: "gamepad",
+        //   component: markRaw(controlContent),
+        //   requiredThings: [],
+        // },
+        // {
+        //   id: 'slide-scan',
+        //   title: 'Slide Scan',
+        //   icon: 'settings_overscan',
+        //   component: markRaw(slideScanContent),
+        //   requiredThings: ['smart_scan'],
+        // },
+        // {
+        //   id: 'scan-list',
+        //   title: 'Scan List',
+        //   icon: 'photo_library',
+        //   component: markRaw(scanListContent),
+        //   requiredThings: ['smart_scan'],
+        // },
       ],
-    };
+    }
   },
 
   computed: {
     tabOrder: function () {
-      var ind = [];
+      const ind = []
       for (const tab of this.topTabs) {
-        ind.push(tab.id);
+        ind.push(tab.id)
       }
       for (const tab of this.bottomTabs) {
-        ind.push(tab.id);
+        ind.push(tab.id)
       }
-      return ind;
+      return ind
     },
 
     topTabs: function () {
       // Filter core top tabs based on available Things. Once Things can specify a
       // custom tab those will need to be added here
       return this.coreTopTabs.filter((tab) => {
-        if (!tab.requiredThings || tab.requiredThings.length === 0) return true;
-        return tab.requiredThings.every((thing) => this.thingAvailable(thing));
-      });
+        if (!tab.requiredThings || tab.requiredThings.length === 0) return true
+        return tab.requiredThings.every((thing) => this.thingAvailable(thing))
+      })
     },
     allTabs() {
-      return [...this.topTabs, ...this.bottomTabs];
+      return [...this.topTabs, ...this.bottomTabs]
     },
     currentTabIndex: function () {
-      return this.tabOrder.indexOf(this.currentTab);
+      return this.tabOrder.indexOf(this.currentTab)
     },
   },
 
   mounted() {
     // A global signal listener to switch tab
-    eventBus.on("globalSwitchTab", (tabID) => {
-      this.currentTab = tabID;
-    });
+    eventBus.on('globalSwitchTab', (tabID) => {
+      this.currentTab = tabID
+    })
     // A global signal listener to increment tab
-    eventBus.on("globalIncrementTab", () => {
-      this.incrementTabBy(1);
-    });
+    eventBus.on('globalIncrementTab', () => {
+      this.incrementTabBy(1)
+    })
     // A global signal listener to decrement tab
-    eventBus.on("globalDecrementTab", () => {
-      this.incrementTabBy(-1);
-    });
+    eventBus.on('globalDecrementTab', () => {
+      this.incrementTabBy(-1)
+    })
     if (this.$store.getters.ready) {
-      this.startModals();
+      this.startModals()
     }
   },
 
   methods: {
     setTab: function (event, tab) {
       if (!(this.currentTab == tab)) {
-        this.currentTab = tab;
+        this.currentTab = tab
       }
     },
     incrementTabBy: function (n) {
       const newIndex =
         (((this.currentTabIndex + n) % this.tabOrder.length) + this.tabOrder.length) %
-        this.tabOrder.length;
-      const newId = this.tabOrder[newIndex];
-      this.currentTab = newId;
+        this.tabOrder.length
+      const newId = this.tabOrder[newIndex]
+      this.currentTab = newId
     },
     startModals: function () {
-      this.$refs.calibrationWizard.show_if_needed();
+      this.$refs.calibrationWizard.show_if_needed()
     },
     enterApp: function () {
       // Stuff to do once connected and all init modals are finished
     },
     scrollToTop() {
-      this.$refs.containerLeft.scrollTo({ top: 0 });
+      this.$refs.containerLeft.scrollTo({ top: 0 })
     },
   },
-};
+}
 </script>
 
 <style scoped lang="less">

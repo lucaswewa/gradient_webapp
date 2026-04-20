@@ -1,4 +1,4 @@
-# vvv
+# Gradient Webapp
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -46,3 +46,66 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Architecture
+
+### `main.ts`
+
+main entrance to load:
+
+- App.vue
+- ./store.js
+- uikit
+- ./mixins/modalMixins.js
+- ./mixins/labThingsMixins
+
+### `store.js`
+
+The store module based on 'vuex' and wotStoreModule
+
+- modules: wotStoreModule
+- state:
+  . origin
+  . available
+  . waiting
+  . error
+- mutations:
+  - changeOrigin
+  - changeWaiting
+  - changeDisableStream
+  - chanteTrackWindow
+  - changeAppTheme
+  - ...
+- actions:
+- getters:
+  - baseUri
+  - ready
+- plugins
+
+### `wot-client.js`
+
+a wot client based on 'axios'.
+
+- state:
+  - thingDescriptions
+  - servient
+  - helpers
+- mutations
+  - addThingDescription
+  - removeThingDescription
+  - removeAllThingDescriptions
+- actions:
+  - start
+  - fetchThingDescription
+  - fetchThingDescriptions
+- getters:
+  - thingDescriptions
+  - thingList
+  - thingDescription
+  - thingAvailable
+  - thingAffordanceAvailable
+    ...
+
+### `eventBus.js`
+
+event bus based on 'mitt'.event bus based on 'mitt'.
