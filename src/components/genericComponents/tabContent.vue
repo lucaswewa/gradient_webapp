@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "TabContent",
+  name: 'TabContent',
 
   props: {
     tabID: {
@@ -26,7 +26,7 @@ export default {
   computed: {},
 
   methods: {},
-};
+}
 </script>
 
 <style lang="less" scoped>

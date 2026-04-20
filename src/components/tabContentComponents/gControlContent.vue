@@ -3,7 +3,6 @@
   <div class="uk-height-1-1 uk-grid-divider uk-margin-remove uk-padding-remove" uk-grid>
     <!-- grid column 1: Grid managing tab content -->
     <div uk-grid class="uk-height-1-1 uk-margin-remove uk-padding-remove">
-      <!-- <calibrationWizard ref="calibrationWizard"></calibrationWizard> -->
       <div class="settings-nav">
         <ul class="uk-nav uk-nav-default">
           <li class="uk-nav-header">Manual Control</li>
@@ -27,7 +26,7 @@
             class="uk-button uk-button-default uk-width-1-1"
             @click="startModals"
           >
-            Launch Calibration Wizard
+            Calibration Wizard
           </button>
           <li v-for="item in calibrationTabs" :key="'setting-' + item.id + '-tab-icon'">
             <tabIcon
@@ -44,7 +43,7 @@
           </li>
         </ul>
       </div>
-      <div class="view-component uk-width-expand uk-padding-small">
+      <div class="gContent view-component uk-width-expand uk-padding-small">
         <tabContent
           v-for="item in allTabs"
           :id="'setting-' + item.id + '-tab-content'"
@@ -166,7 +165,7 @@ export default {
 .settings-nav {
   overflow-y: auto;
   overflow-x: hidden;
-  width: 180px;
+  width: 160px;
   padding: 10px;
   background-color: rgba(180, 180, 180, 0.03);
   border-width: 0 1px 0 0;
@@ -177,6 +176,10 @@ export default {
 .settings-nav li > a {
   padding-left: 6px !important;
   border-radius: @button-border-radius;
+}
+
+.gContent {
+  width: 320px;
 }
 
 #mini-stream {
