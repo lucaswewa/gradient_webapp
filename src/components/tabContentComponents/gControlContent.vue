@@ -67,6 +67,7 @@
 import gStageControlContent from './gControlComponents/gStageControlContent.vue'
 import gProjectorControlContent from './gControlComponents/gProjectorControlContent.vue'
 import gCameraControlContent from './gControlComponents/gCameraControlContent.vue'
+import gIMS5600ControlContent from './gControlComponents/gIMS5600ControlContent.vue'
 import gDeviceControlContent from './gControlComponents/gDeviceControlContent.vue'
 import MiniStreamDisplay from '../genericComponents/miniStreamDisplay.vue'
 
@@ -112,6 +113,13 @@ export default {
           title: 'Camera',
           requireConnection: false,
           component: markRaw(gCameraControlContent),
+          requiredThings: [],
+        },
+        {
+          id: 'IMS5600',
+          title: 'με IMS5600',
+          requireConnection: false,
+          component: markRaw(gIMS5600ControlContent),
           requiredThings: [],
         },
       ],
