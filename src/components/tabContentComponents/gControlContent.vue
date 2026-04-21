@@ -5,7 +5,7 @@
     <div uk-grid class="uk-height-1-1 uk-margin-remove uk-padding-remove">
       <div class="settings-nav">
         <ul class="uk-nav uk-nav-default">
-          <li class="uk-nav-header">Manual Control</li>
+          <li class="uk-nav-header">Instrument Control</li>
           <li v-for="item in appTabs" :key="'setting-' + item.id + '-tab-content'">
             <tabIcon
               :id="'setting-' + item.id + '-tab-content'"

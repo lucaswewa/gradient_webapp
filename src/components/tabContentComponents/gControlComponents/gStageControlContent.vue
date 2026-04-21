@@ -8,29 +8,31 @@
         :read-back="true"
         :read-back-delay="200"
       />
+      <propertyControl
+        thing-name="stage"
+        property-name="velocity"
+        label="velocity (mm/s)"
+        :read-back="true"
+        :read-back-delay="200"
+      />
+      <label class="uk-form-label">move rel delta:</label>
+      <input v-model="delta" type="number" class="uk-form-small numeric-setting-line-input uk-form-label" />
       <actionButton
         thing="stage"
         action="move_rel"
         poll-interval="100"
-        :submit-data="{ delta: 0.5, block_cancellation: false }"
+        :submit-data="{ 'delta': delta }"
         submit-label="move rel"
       />
+      <label class="uk-form-label">move abs target:</label>
+      <input v-model="target" type="number" class="uk-form-small numeric-setting-line-input" />
       <actionButton
         thing="stage"
         action="move_abs"
         poll-interval="100"
-        :submit-data="{ position: 12, block_cancellation: false }"
+        :submit-data="{ position: 12 }"
         submit-label="move abs"
       />
-      <li>Dpad Control: XY Z</li>
-      <li>Step Size</li>
-      <li>Positions</li>
-      <li>Speeds</li>
-      <li>Accelerations</li>
-      <li>Limits</li>
-      <li>Homing</li>
-      <li>Jogging</li>
-      <li>Set Origin</li>
     </ul>
   </div>
 </template>
@@ -54,6 +56,8 @@ export default {
         { name: 'projector_g', label: 'Projector Grn' },
         { name: 'projector_b', label: 'Projector Blu' },
       ],
+      delta: 0.5,
+      target: 0.0,
     }
   },
 }
